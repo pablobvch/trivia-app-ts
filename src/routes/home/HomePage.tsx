@@ -6,19 +6,19 @@ import "./styles.css";
 
 const HomePage = () => {
   return (
-    <Container className="home-container" maxWidth="sm">
+    <Container className="layout" maxWidth="sm">
       <Box>
-        <h1 className="styled-heading--dark">
+        <h1 className="styled-heading styled-heading-bigger">
           Welcome to the Trivia Challenge
         </h1>
       </Box>
       <Box my={2}>
-        <h2 className="styled-heading">
+        <h3 className="styled-heading--dark">
           You will be presented with 10 True or False questions
-        </h2>
+        </h3>
       </Box>
       <Box my={2}>
-        <h2 className="styled-heading">Can you score 100%?</h2>
+        <h3 className="styled-heading--dark">Can you score 100%?</h3>
       </Box>
       <Box>
         <Button variant="contained" className="btn-primary">

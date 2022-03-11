@@ -5,13 +5,54 @@
   --light-blue: #a8dadc;
   --blue: #457b9d;
   --dark-blue: #1d3557;
-  --green: #b9fbc0;
+  --green: #078914;
 }
 
 html,
-body,
-#root {
+body{
   height: 100%;
   text-align: center;
   background-color: var(--white);
 }
+
+*,*::before,*::after{
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.layout{
+  display: flex!important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+.btn-primary
+{
+  background-color: var(--blue)!important;
+  color: var(--white)!important;
+}
+
+.btn-primary:hover{
+  background-color: var(--dark-blue)!important;
+}
+
+.btn-primary a
+{
+  color: var(--white)!important;
+  text-decoration: none;  
+}
+
+.styled-heading{
+  color:var(--blue);
+}
+
+.styled-heading--dark{
+  color:var(--dark-blue);
+}
+
+
+
+

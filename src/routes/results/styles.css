@@ -1,0 +1,11 @@
+.style-icon--ok{
+  color:var(--green);
+}
+
+.style-icon--wrong{
+  color:var(--red);
+}
+
+.styled-heading--green{
+  color:var(--green);
+}

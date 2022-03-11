@@ -1,4 +1,6 @@
+import { Box, Button, Container } from "@material-ui/core";
 import Loading from "components/loading";
+import he from "he";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
@@ -7,6 +9,7 @@ import setAnswer from "store/actions/setAnswer";
 import styled from "styled-components";
 import { Question } from "../../types/Question";
 import { getQuestions } from "./fetch";
+import "./styles.css";
 
 interface Props extends RouteComponentProps {}
 
@@ -47,11 +50,18 @@ const renderQuestion = (
   dispatch: any
 ) => (
   <QuestionDiv key={`number_${index}`} {...{ index, visibleIndex }}>
-    <h1>{category}</h1>
-    <p>{question}</p>
-    <p>{`${index + 1} of 10`}</p>
-    <div>
-      <button
+    <Box>
+      <h1 className="styled-heading">{category}</h1>
+    </Box>
+    <Box my={2}>
+      <p>{he.decode(question)}</p>
+    </Box>
+    <Box my={2}>
+      <p>{`${index + 1} of 10`}</p>
+    </Box>
+    <Box>
+      <Button
+        className="btn-primary btn-mr"
         onClick={() =>
           handleOnResponseClick(
             "True",
@@ -65,8 +75,9 @@ const renderQuestion = (
         }
       >
         True
-      </button>
-      <button
+      </Button>
+      <Button
+        className="btn-primary"
         onClick={() =>
           handleOnResponseClick(
             "False",
@@ -80,8 +91,8 @@ const renderQuestion = (
         }
       >
         False
-      </button>
-    </div>
+      </Button>
+    </Box>
   </QuestionDiv>
 );
 
@@ -92,7 +103,7 @@ const renderQuestions = (
   props: Props,
   dispatch: any
 ) => (
-  <div>
+  <Container className="layout">
     {questions.map((question, index) =>
       renderQuestion(
         question,
@@ -103,7 +114,7 @@ const renderQuestions = (
         dispatch
       )
     )}
-  </div>
+  </Container>
 );
 
 const QuestionsPage = (props: Props) => {

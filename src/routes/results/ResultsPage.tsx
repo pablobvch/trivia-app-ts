@@ -1,19 +1,33 @@
+import { Box, Button, Container } from "@material-ui/core";
+import CheckIcon from "@mui/icons-material/Check";
+import CloseIcon from "@mui/icons-material/Close";
+import he from "he";
 import { useDispatch, useSelector } from "react-redux";
 import { RouteComponentProps } from "react-router";
 import resetGame from "store/actions/resetGame";
 import { Answer } from "../../types/Answer";
+import "./styles.css";
 
 interface Props extends RouteComponentProps {}
 
-const renderAnswer = (answer: Answer) => (
-  <div>
-    {answer.result ? <div>+</div> : <div>-</div>}
-    {answer.question}
-  </div>
+const renderAnswer = (answer: Answer, index: number) => (
+  <Box
+    sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+    my={1}
+    key={`item-${index}`}
+  >
+    {answer.result ? (
+      <CheckIcon className="style-icon--ok" />
+    ) : (
+      <CloseIcon className="style-icon--wrong" />
+    )}
+    {he.decode(answer.question)}
+  </Box>
 );
 
 const renderAnswers = (answers: Answer[]) =>
-  answers.map((answer) => renderAnswer(answer));
+  answers.map((answer, index) => renderAnswer(answer, index));
+//renderAnswer(answers[1], 1);
 
 const handleClick = (props: Props, dispatch: any) => {
   dispatch(resetGame());
@@ -25,12 +39,21 @@ const ResultsPage = (props: Props) => {
   const { score, answers } = useSelector((state: any) => state.score);
 
   return (
-    <div>
-      Your Score
-      {<p>{`${score}/10`}</p>}
+    <Container className="layout">
+      <Box>
+        <h1 className="styled-heading">Your Score</h1>
+      </Box>
+      <Box>{<h2 className="styled-heading--green">{`${score}/10`}</h2>}</Box>
       {renderAnswers(answers)}
-      <button onClick={() => handleClick(props, dispatch)}>Play Again</button>
-    </div>
+      <Box>
+        <Button
+          className="btn-primary"
+          onClick={() => handleClick(props, dispatch)}
+        >
+          Play Again
+        </Button>
+      </Box>
+    </Container>
   );
 };
 
