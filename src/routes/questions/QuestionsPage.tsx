@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
 import incrementScore from "store/actions/incrementScore";
+import setAnswer from "store/actions/setAnswer";
 import setStoreQuestions from "store/actions/setStoreQuestions";
 import styled from "styled-components";
 import { Question } from "../../types/Question";
@@ -16,10 +17,14 @@ const handleOnResponseClick = (
   setVisibleIndex: React.Dispatch<React.SetStateAction<number>>,
   incorrect_answers: Question["incorrect_answers"],
   props: Props,
-  dispatch: any //TODO
+  dispatch: any, //TODO
+  question: Question["question"]
 ) => {
   if (value !== incorrect_answers[0]) {
     dispatch(incrementScore());
+    dispatch(setAnswer(question, true));
+  } else {
+    dispatch(setAnswer(question, false));
   }
 
   if (visibleIndex < 9) {
@@ -55,7 +60,8 @@ const renderQuestion = (
             setVisibleIndex,
             incorrect_answers,
             props,
-            dispatch
+            dispatch,
+            question
           )
         }
       >
@@ -69,7 +75,8 @@ const renderQuestion = (
             setVisibleIndex,
             incorrect_answers,
             props,
-            dispatch
+            dispatch,
+            question
           )
         }
       >
