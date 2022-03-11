@@ -1,3 +1,31 @@
-.home-container {
-  text-align: center;
+.home-container{
+  display: flex!important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+.styled-heading{
+  color:var(--blue);
+}
+
+.styled-heading--dark{
+  color:var(--dark-blue);
+}
+
+.btn-primary
+{
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.btn-primary a
+{
+  color: var(--white);
+  text-decoration: none;  
+}
+
+.btn-primary:hover{
+  background-color: var(--dark-red);
 }

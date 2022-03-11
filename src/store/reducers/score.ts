@@ -22,10 +22,6 @@ const score = (state = initialState, action: Action) => {
       const newState = initialState;
       return newState;
     }
-    case "SET_STORE_QUESTIONS": {
-      const newState = { ...state, questions: action.payload };
-      return newState;
-    }
     case "SET_ANSWER": {
       const newState = {
         ...state,

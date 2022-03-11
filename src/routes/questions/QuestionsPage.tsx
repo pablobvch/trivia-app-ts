@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
 import incrementScore from "store/actions/incrementScore";
 import setAnswer from "store/actions/setAnswer";
-import setStoreQuestions from "store/actions/setStoreQuestions";
 import styled from "styled-components";
 import { Question } from "../../types/Question";
 import { getQuestions } from "./fetch";
@@ -116,7 +115,6 @@ const QuestionsPage = (props: Props) => {
     const fetchQuestions = async () => {
       const response = await getQuestions();
       setQuestions(response.results);
-      dispatch(setStoreQuestions(response.results));
     };
 
     fetchQuestions().catch(console.error);
