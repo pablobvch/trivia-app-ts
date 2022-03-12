@@ -19,7 +19,7 @@ const handleOnResponseClick = (
   setVisibleIndex: React.Dispatch<React.SetStateAction<number>>,
   incorrect_answers: Question["incorrect_answers"],
   props: Props,
-  dispatch: any, //TODO
+  dispatch: any,
   question: Question["question"]
 ) => {
   if (value !== incorrect_answers[0]) {

@@ -12,12 +12,12 @@ const HomePage = () => {
           Welcome to the Trivia Challenge
         </h1>
       </Box>
-      <Box my={2}>
+      <Box mt={2} mb={1}>
         <h3 className="styled-heading--dark">
           You will be presented with 10 True or False questions
         </h3>
       </Box>
-      <Box my={2}>
+      <Box mt={1} mb={2}>
         <h3 className="styled-heading--dark">Can you score 100%?</h3>
       </Box>
       <Box>

@@ -27,7 +27,6 @@ const renderAnswer = (answer: Answer, index: number) => (
 
 const renderAnswers = (answers: Answer[]) =>
   answers.map((answer, index) => renderAnswer(answer, index));
-//renderAnswer(answers[1], 1);
 
 const handleClick = (props: Props, dispatch: any) => {
   dispatch(resetGame());
@@ -45,7 +44,7 @@ const ResultsPage = (props: Props) => {
       </Box>
       <Box>{<h2 className="styled-heading--green">{`${score}/10`}</h2>}</Box>
       {renderAnswers(answers)}
-      <Box>
+      <Box mt={1}>
         <Button
           className="btn-primary"
           onClick={() => handleClick(props, dispatch)}
