@@ -10,6 +10,10 @@ All the source code is available on [Github](https://github.com/pablobvch/trivia
 
 This website was deployed for you via [Netlify](https://www.netlify.com/) on https://trivia-app-ts-pab.netlify.app/
 
+## Prerequisites
+
+The node_modules folder is not attached. Please run the command `npm install` for using the app locally 
+
 ### The following instructions are the same that any other create-react-app's project.
 
 ## Available Scripts
